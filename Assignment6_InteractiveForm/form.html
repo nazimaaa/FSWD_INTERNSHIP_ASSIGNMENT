@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Interactive Form</title>
+</head>
+
+<body>
+
+    <h2>Signup Form</h2>
+
+    <form onsubmit="return validateForm()">
+        Name: <input type="text" id="name"><br><br>
+        Email: <input type="text" id="email"><br><br>
+        Password: <input type="password" id="password"><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="message"></p>
+
+    <script>
+        function validateForm() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            let message = document.getElementById("message");
+
+            if (name === "" || email === "" || password === "") {
+                message.innerHTML = "All fields are required!";
+                message.style.color = "red";
+                return false;
+            }
+
+            if (!email.includes("@")) {
+                message.innerHTML = "Enter valid email!";
+                message.style.color = "red";
+                return false;
+            }
+
+            if (password.length < 6) {
+                message.innerHTML = "Password must be at least 6 characters!";
+                message.style.color = "red";
+                return false;
+            }
+
+            message.innerHTML = "Form submitted successfully!";
+            message.style.color = "green";
+
+            return false;
+        }
+    </script>
+
+</body>
+
+</html>

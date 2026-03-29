@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>Open console to see student data</h2>
+
+    <script>
+
+        // array of students (objects)
+        let students = [
+            { name: "Ali", marks: [80, 75, 90] },
+            { name: "Sara", marks: [85, 70, 88] },
+            { name: "John", marks: [60, 65, 70] }
+        ];
+
+        // calculate average for each student
+        students.forEach(student => {
+            let total = 0;
+
+            student.marks.forEach(mark => {
+                total += mark;
+            });
+
+            let avg = total / student.marks.length;
+
+            console.log(student.name + " Average:", avg);
+        });
+
+    </script>
+
+</body>
+
+</html>
